@@ -106,8 +106,7 @@ export class ReactNativeModal extends Component {
   _close = async () => {
     this.backdropRef.transitionTo({ opacity: 0 }, this.props.backdropTransitionOutTiming);
     this.contentRef[this.props.animationOut](this.props.animationOutTiming).then(() => {
-      this.setState({ isVisible: false });
-      this.props.onModalHide();
+      this.setState({ isVisible: false }, this.props.onModalHide);
     });
   };
 
